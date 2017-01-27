@@ -1,11 +1,5 @@
 package copy.a.file;
 
-/* Copy.java
- copies one file to another.
- if the destination file exists the user is given the options
- to overwrite or append to the the existing file or enter a
- new file name or exit.
- */
 import java.io.*;
 
 class Copy {
@@ -14,7 +8,6 @@ class Copy {
     private static FileOutputStream fout;
     private static boolean flag;
 
-// creates a new file outputstream instance
     static FileOutputStream create(String s) throws IOException {
         flag = true;
         fout = new FileOutputStream(s);
@@ -22,15 +15,14 @@ class Copy {
         return fout;
     }
 
-// creates a file outputstream instance in append mode
+    // creates a file outputstream instance in append mode
     static FileOutputStream append(String s) throws IOException {
         return fout = new FileOutputStream(s, true);
     }
 
-// displays message if program cannot copy a file
+    // displays message if program cannot copy a file
     static void nocopy() {
         System.out.println("No File Copied");
-        System.out.println("Thank you for using this program....");
     }
 
     public static void main(String args[]) throws IOException {
@@ -47,16 +39,16 @@ class Copy {
                 args[1] += args[0];
                 f = new File(args[1]);
             }
-            if (f.exists())                                         //outer 
+            if (f.exists())                                         
                 {
                     if (args[0].equals(args[1])) {
-                        //throws new MyException("File cannot be copied onto  itself ! ! ");
+                        //throws new MyException("File cannot be copied onto itself!");
                     }
          }
-         System.out.println("'" + args[1] + "' already exists!!");
+         System.out.println("'" + args[1] + "' already exists!");
                 System.out.println();
                 if (!f.canWrite()) {
-                    System.out.println("'" + args[1] +"' is read-only. Access denied !!");
+                    System.out.println("'" + args[1] +"' is read-only. Access denied.");
            System.out.println();
                 } else {
                     System.out.println("Overwrite----------------> o");
@@ -66,7 +58,7 @@ class Copy {
                 System.out.println("New destination file-----> n");
                 System.out.println("Exit---------------------> any other key");
          ch = ReadVal.readChar();
-                switch (ch) {                                          //switch
+                switch (ch) {                                   
 
            case 'o':
                     case 'O':
@@ -92,10 +84,10 @@ class Copy {
                         File f1 = new File(s);
                         if (f1.exists()) {
                             if (args[0].equals(s)) {
-                                //throw new MyException("File cannot be copied onto itself !!");
+                                //throw new MyException("File cannot be copied onto itself!");
                }
                if (!f1.canWrite()) {
-                                //throw new MyException("'" + s + }"' is read-only. Access denied !!");
+                                //throw new MyException("'" + s + }"' is read-only. Access denied.");
                             System.out.println("File exists!!");
                             System.out.print("Overwrite / Append / Exit ? ");
                             char c;
@@ -117,17 +109,12 @@ class Copy {
                     default:
                         nocopy();
                         return;
-                 //switch
-                
-                 
-
+   
                 }
                 if (fout == null) {
                     create(args[1]);
                 }
             }
-       
-         //try 
        
      catch (ArrayIndexOutOfBoundsException ae) {
                     System.out.println("Usage : java Copy <source file> <destination file >");
@@ -143,11 +130,11 @@ class Copy {
        return;
      }
 
-// read from source file & write to destination file
+    // read from source file & write to destination file
         try {
             while ((fin.read()) != -1) {
                 fout.write((char) i);
-//         i=fin.read();
+    //          i=fin.read();
             }
             fin.close();
             fout.close();
@@ -158,7 +145,6 @@ class Copy {
     }
 }
 
-//**********************************************************************
 //ReadVal.java
 //import java.io.*;
 class ReadVal {

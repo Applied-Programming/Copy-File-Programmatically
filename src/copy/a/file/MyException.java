@@ -12,7 +12,8 @@ package copy.a.file;
 public class MyException {
 
     MyException(String file_cannot_be_copied_onto__itself___) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        throw new UnsupportedOperationException("Not supported yet.");
+        //To change body of generated methods, choose Tools | Templates.
     }
     
 }
